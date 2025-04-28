@@ -45,14 +45,11 @@ const productPage = async ({ params }) => {
             <span className="text-[#ff8c00]">{product.chibsSerial}</span>
           </h6>
         </div>
-        {product ? (<Link href={`/product/${id}/order`}>
+        <Link href={`/product/${id}/order`}>
           <div className="w-[100%] h-20 text-[1.5rem] md:text-[2rem] lg:text-[2rem] sm:text-[1.5rem] flex justify-center items-center border-4 border-white hover:bg-[#ff8c00]">
             <h6>ORDER NOW</h6>
           </div>
-        </Link>):(<div className="flex justify-center border-4 p-2">
-                <Loading />
-              </div>)}
-        
+        </Link>
       </div>
     </div>
   );

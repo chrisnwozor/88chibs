@@ -1,14 +1,11 @@
 "use client";
 import Image from "next/image";
 import { SignedOut, SignedIn, SignInButton } from "@clerk/nextjs";
-
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-import Loading from "./Loading";
 import { data } from "../lib/fetchProducts";
 
 const Product = () => {
-  
   return (
     <div
       id="product"
@@ -43,19 +40,14 @@ const Product = () => {
                 </div>
               </SignInButton>
             </SignedOut>
-            {data ? (
-              <SignedIn>
-                <Link href={`/product/${item.slugCurrent}`}>
-                  <div className="text-3xl mt-3 border flex justify-center p-3 hover:bg-[#ff8c00] cursor-pointer">
-                    BUY NOW
-                  </div>
-                </Link>
-              </SignedIn>
-            ) : (
-              <div className="flex justify-center border-4 p-2">
-                <Loading />
-              </div>
-            )}
+
+            <SignedIn>
+              <Link href={`/product/${item.slugCurrent}`}>
+                <div className="text-3xl mt-3 border flex justify-center p-3 hover:bg-[#ff8c00] cursor-pointer">
+                  BUY NOW
+                </div>
+              </Link>
+            </SignedIn>
           </div>
         ))}
       </div>
