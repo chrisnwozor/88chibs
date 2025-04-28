@@ -14,7 +14,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
       <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
         <body className={`${anton.className} antialiased bg-primary`}>
           {children}
